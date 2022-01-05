@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['emptyEmail'] = 'Email Field is Requird';
       }
       if (!empty($linkedin)) {   // not null and contains www. and another . 
-            if (!((strpos($linkedin, 'www.')) && strpos($linkedin, '.'))) {
+               if (!(strpos($linkedin, 'www.') && strpos($linkedin, '.')) ) {
                   $errors['UrlFormat'] = 'Invalid Url Format';
             }
       } else { // linkedin is null
