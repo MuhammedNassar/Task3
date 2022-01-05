@@ -29,13 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       } else { //Email Is Null
             $errors['emptyEmail'] = 'Email Field is Requird';
       }
-      if (!empty($linkedin)) {   // not null and contains www. and another . 
-               if (!(strpos($linkedin, 'www.') && strpos($linkedin, '.com')) ) {
-                  $errors['UrlFormat'] = 'Invalid Url Format';
-            }
-      } else { // linkedin is null
-            $errors['linkedinUrl'] = 'linkedin URL Field is Requird';  
-      }
+     if (!empty($linkedin)) {   // not null and contains www. and another . 
+        if (strpos($linkedin, 'linkedin.com/') != true) {
+            $errors['UrlFormat'] = 'Invalid Url Format';
+        }
+    } else { // linkedin is null
+        $errors['linkedinUrl'] = 'linkedin URL Field is Requird';
+    }
       if (!empty($address)) { // address not null 
             if (strlen($address) > 10) { // check length
                   $errors['addressLimit'] = 'Address most be at Max 10 chars';
